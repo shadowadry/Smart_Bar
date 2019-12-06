@@ -3,6 +3,7 @@ package com.bar.rest.controller;
 import java.net.URI;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.SpringVersion;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,15 +20,32 @@ import com.bar.rest.model.Tragos;
 @RestController
 @RequestMapping(path = "/tragos")
 public class TragosController {
-
+    @Value("${entrypoint.db.definition}")
+    private String dbWay;
+	
 	@Autowired
 	private TragosDAO tragosDao;
 	
     @GetMapping(path="/", produces = "application/json")
     public Tragos getEmployees() 
     {
-    	System.out.println("version: " + SpringVersion.getVersion());
-        return tragosDao.getAllTragos();
+    	if("estatico".equals(dbWay)) {
+    		
+    		return tragosDao.getAllTragos();
+    		
+    	}else if("mysql".equals(dbWay)) {	
+    		
+    		return null;
+    	
+    	}else if("aws".equals(dbWay)){
+    	
+    		return null;
+    	
+    	}else {
+    	
+    		return null;
+    	
+    	}
     }
 	
     @PostMapping(path= "/", consumes = "application/json", produces = "application/json")

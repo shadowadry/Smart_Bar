@@ -1,10 +1,8 @@
 package com.bar.rest.dao;
 
-import org.springframework.context.annotation.Bean;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
-import com.amazonaws.auth.AWSCredentials;
-import com.amazonaws.auth.BasicAWSCredentials;
 import com.bar.rest.model.Trago;
 import com.bar.rest.model.Tragos;
 
@@ -12,11 +10,8 @@ import com.bar.rest.model.Tragos;
 public class TragosDAO {
 	private static Tragos list = new Tragos();
 	
-	@Bean
-	private AWSCredentials amazonAWSCredentials() {
-	    return new BasicAWSCredentials("", "");
-	}
-	
+  @Value("${entrypoint.db.definition}")
+  private String entryPointDBdefinition;
 	
     static
     {
@@ -32,4 +27,7 @@ public class TragosDAO {
     public void addTrago(Trago trago) {
     	list.getListaTragos().add(trago);
     }
+    
+    
+    
 }
