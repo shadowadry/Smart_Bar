@@ -4,41 +4,41 @@ package com.bar.rest.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.*;
+//import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+//import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-@Entity
-@Table(name = "Persona")
-@EntityListeners(AuditingEntityListener.class)
+//
+//@Entity
+//@Table(name = "Persona")
+//@EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, allowGetters = true)
 
 public class Persona implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id_persona;
 
-    @NotBlank
+//    @NotBlank
     private String Nombre;
     
-    @NotBlank
+//    @NotBlank
     private String Apellido;
     
-    @NotBlank
+//    @NotBlank
     private String Email;
     
-    @NotBlank
+//    @NotBlank
     private Date fechaNacimiento;
     
-    @NotBlank
+//    @NotBlank
     private String Telefono;
     
-    @NotBlank
+//    @NotBlank
     private String Profesion;
 
 	public Long getId_persona() {

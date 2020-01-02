@@ -27,11 +27,12 @@ public class TragosController {
 	private TragosDAO tragosDao;
 	
     @GetMapping(path="/", produces = "application/json")
-    public Tragos getEmployees() 
+    public Tragos getTragos()
     {
     	if("estatico".equals(dbWay)) {
     		
     		return tragosDao.getAllTragos();
+
     		
     	}else if("mysql".equals(dbWay)) {	
     		
@@ -48,7 +49,7 @@ public class TragosController {
     	}
     }
 	
-    @PostMapping(path= "/", consumes = "application/json", produces = "application/json")
+    @PostMapping(path= "/add", consumes = "application/json", produces = "application/json")
     public ResponseEntity<Object> addTrago(@RequestBody Trago trago){
     	Integer id = tragosDao.getAllTragos().getListaTragos().size() + 1;
     	trago.setId(id);
@@ -62,4 +63,5 @@ public class TragosController {
     	
     	return ResponseEntity.created(location).build();
     }
+    
 }

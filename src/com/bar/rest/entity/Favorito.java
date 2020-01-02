@@ -4,28 +4,28 @@ package com.bar.rest.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.*;
+//import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+//import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@Entity
-@Table(name = "Usuario")
-@EntityListeners(AuditingEntityListener.class)
+//@Entity
+//@Table(name = "Usuario")
+//@EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, allowGetters = true)
 
 public class Favorito implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
-	@Id
+//	@Id
     private Long Id_trago;
 
-	@Id
+//	@Id
     private Long Id_usuario;  
 	
-	@NotBlank
+//	@NotBlank
 	private String descripcion;
 
 	public Long getId_trago() {

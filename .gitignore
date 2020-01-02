@@ -4,3 +4,9 @@ src/META-INF/additional-spring-configuration-metadata.json
 target/classes/
 
 src/META-INF/
+
+.idea/libraries/
+
+.idea/
+
+*.iml
